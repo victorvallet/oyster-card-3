@@ -9,7 +9,7 @@ TOP_UP_LIMIT = 90
   end
 
   def top_up(value)
-   fail "reached max limit" if value + balance > 90
+   fail "reached max limit" if value + balance > TOP_UP_LIMIT
    @balance += value
   end
 
