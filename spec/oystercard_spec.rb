@@ -16,14 +16,14 @@ describe Oystercard do
     expect { subject.top_up(limit + 1) } .to raise_error "Error, card has limit of #{limit}"
   end
 
-  describe '#deduct' do
-    [3,5,7].each do |num|
-      it "should reduced the balane by the given argument" do
-        subject.deduct(num)
-        expect(subject.balance).to eq(-num)
-      end
-    end
-  end
+  # describe '#deduct' do
+  #   [3,5,7].each do |num|
+  #     it "should reduced the balane by the given argument" do
+  #       subject.deduct(num)
+  #       expect(subject.balance).to eq(-num)
+  #     end
+  #   end
+  # end
 
   describe '#in_journey?' do
     it "should return false" do
@@ -57,7 +57,8 @@ describe Oystercard do
         expect(subject).not_to be_in_journey
       end
       it "should deduct the minimum fare from the card" do
-        expect { subject.touch_out }.to change{ subject.balance }.by(-1)
+        min_fare = Oystercard::MINIMUM_FARE
+        expect { subject.touch_out }.to change{ subject.balance }.by(-min_fare)
       end
     end
   end
