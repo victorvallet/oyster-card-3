@@ -3,7 +3,7 @@ class Oystercard
 TOP_UP_LIMIT = 90
 MINIMUM_FARE = 1
 
-  attr_reader :balance, :in_use
+  attr_reader :balance
 
   def initialize
     @balance = 0
