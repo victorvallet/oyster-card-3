@@ -49,6 +49,9 @@ describe Oystercard do
       it "should change #in_journey to true" do
         expect(subject).to be_in_journey
       end
+      xit "stores current entry station" do
+        expect(subject.current_station).to eq(current_station)
+      end
     end
 
     describe '#touch_out' do

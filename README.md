@@ -73,3 +73,8 @@ balance check
 \#touch_out
 balance - Minimum value
 \@in system 
+
+\#touch_in(station)
+balance check
+\@current_station = station
+\@in system
