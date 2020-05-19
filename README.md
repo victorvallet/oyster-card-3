@@ -56,3 +56,12 @@ I need a penalty charge deducted if I fail to touch in or out
 In order to be charged the correct amount
 As a customer
 I need to have the correct fare calculated
+
+\#touch_in
+\@in_system = true
+
+\#touch_out
+\@in_system = false
+
+\#in journey
+\@in_use
