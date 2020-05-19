@@ -69,3 +69,7 @@ I need to have the correct fare calculated
 \#touch_in
 balance check
 \@in_system
+
+\#touch_out
+balance - Minimum value
+\@in system 
