@@ -9,8 +9,8 @@ TOP_UP_LIMIT = 90
   end
 
   def top_up(value)
-   fail "reached max limit" if value + balance > TOP_UP_LIMIT
-   @balance += value
+    fail "Error, card has limit of #{TOP_UP_LIMIT}" if value + balance > TOP_UP_LIMIT
+    @balance += value
   end
 
 end
