@@ -27,7 +27,7 @@ TOP_UP_LIMIT = 90
   end
 
   def in_journey?
-    @in_use
+    !!@in_use
   end
 
 end
