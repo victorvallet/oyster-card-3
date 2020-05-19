@@ -16,4 +16,19 @@ describe Oystercard do
     expect { subject.top_up(limit + 1) } .to raise_error "Error, card has limit of #{limit}"
   end
 
+  describe '#deduct' do
+    [3,5,7].each do |num|
+      it "should reduced the balane by the given argument" do
+        subject.deduct(num)
+        expect(subject.balance).to eq(-num)
+      end
+    end
+  end
+
+  describe '#in_journey' do
+    it "it should return false" do
+      expect(subject.in_journey).to eq(false)
+    end
+  end
+
 end
