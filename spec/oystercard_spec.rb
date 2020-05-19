@@ -25,9 +25,9 @@ describe Oystercard do
     end
   end
 
-  describe '#in_journey' do
-    it "it should return false" do
-      expect(subject.in_journey).to eq(false)
+  describe '#in_journey?' do
+    it "should return false" do
+      expect(subject.in_journey?).to eq(false)
     end
   end
 
