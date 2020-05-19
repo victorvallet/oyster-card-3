@@ -61,7 +61,11 @@ I need to have the correct fare calculated
 \@in_system = true
 
 \#touch_out
-\@in_system = false
+\@in_system = fals
 
 \#in journey
 \@in_use
+
+\#touch_in
+balance check
+\@in_system
