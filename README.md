@@ -109,3 +109,18 @@ As a customer
 I want to see to all my previous trips
 
 [{@my_trip}, {@my_trip}, {@my_trip}]
+
+
+
+
+In order to know how far I have travelled
+As a customer
+I want to know what have a station
+
+\class Station
+
+In order to know how far I have travelled
+As a customer
+I want to know what zone a station is in
+
+\station.zone
