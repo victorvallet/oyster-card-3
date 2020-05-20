@@ -72,9 +72,33 @@ balance check
 
 \#touch_out
 balance - Minimum value
-\@in system 
+\@in system
 
 \#touch_in(station)
 balance check
 \@current_station = station
 \@in system
+
+
+
+
+
+
+
+In order to pay for my journey
+As a customer
+I need to know where I've travelled from
+
+\@entry_station
+
+
+In order to pay for my journey
+As a customer
+I need to know where I've travelled to
+
+\@exit_station
+
+
+In order to know where I have been
+As a customer
+I want to see to all my previous trips
