@@ -19,14 +19,13 @@ MINIMUM_FARE = 1
   def touch_in(station)
     raise "No money" if balance < MINIMUM_FARE
     @entry_station = station
-    @after_entry = station
   end
 
   def touch_out(station)
     deduct(MINIMUM_FARE)
-    @entry_station = nil
     @exit_station = station
-    @my_trip << [@after_entry, @exit_station]
+    @my_trip << [@entry_station, @exit_station]
+    @entry_station = nil
   end
 
   def my_trip
