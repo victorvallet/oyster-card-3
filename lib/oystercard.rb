@@ -24,7 +24,7 @@ MINIMUM_FARE = 1
   def touch_out(station)
     deduct(MINIMUM_FARE)
     @exit_station = station
-    @my_trips << { :entry => @entry_station, :exit => @exit_station }
+    add_last_trip
     @entry_station = nil
   end
 
@@ -33,6 +33,10 @@ MINIMUM_FARE = 1
   end
 
   private
+
+  def add_last_trip
+    @my_trips << { :entry => @entry_station, :exit => @exit_station }
+  end
 
   def over_limit?(value)
     value + balance > TOP_UP_LIMIT
