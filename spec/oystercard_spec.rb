@@ -64,6 +64,9 @@ describe Oystercard do
       end
     end
     describe '#my_trip' do
+      it 'should have no journeys at the start' do
+        expect(subject.my_trips).to eq([])
+      end
       it 'should print my trip' do
         subject.touch_out(exit_station)
         expect(subject.my_trips).to eq([{:entry => entry_station, :exit => exit_station}])
