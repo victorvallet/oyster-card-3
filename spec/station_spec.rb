@@ -1,8 +1,13 @@
 require 'station'
 describe Station do
-  it { is_expected.to be_instance_of Station}
+
+  it 'initialize a station with zone value' do
+    station = Station.new(2)
+    expect(station.zone).to eq 2
+  end
 
   it 'show the zone of the station' do
-    expect(subject.zone).to eq 1
+    station = Station.new(1)
+    expect(station.zone).to eq 1
   end
 end
