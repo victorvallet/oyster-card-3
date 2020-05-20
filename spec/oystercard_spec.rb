@@ -66,13 +66,13 @@ describe Oystercard do
     describe '#my_trip' do
       it 'should print my trip' do
         subject.touch_out(exit_station)
-        expect(subject.my_trip).to eq([[entry_station, exit_station]])
+        expect(subject.my_trips).to eq([{:entry => entry_station, :exit => exit_station}])
       end
       it 'store two trips in an array' do
         subject.touch_out(exit_station)
         subject.touch_in(entry_station)
         subject.touch_out(exit_station)
-        expect(subject.my_trip).to eq([[entry_station, exit_station], [entry_station, exit_station]])
+        expect(subject.my_trips).to eq([{:entry => entry_station, :exit => exit_station}, {:entry => entry_station, :exit => exit_station}])
       end
     end
   end
