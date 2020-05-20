@@ -11,7 +11,7 @@ MINIMUM_FARE = 1
   end
 
   def top_up(value)
-    fail "Error, card has limit of #{TOP_UP_LIMIT}" if value + balance > TOP_UP_LIMIT
+    fail "Error, card has limit of #{TOP_UP_LIMIT}" if  over_limit?(value)
     @balance += value
   end
 
@@ -31,6 +31,10 @@ MINIMUM_FARE = 1
   end
 
   private
+
+  def over_limit?(value)
+    value + balance > TOP_UP_LIMIT
+  end
 
   def deduct(fare)
     @balance -= fare

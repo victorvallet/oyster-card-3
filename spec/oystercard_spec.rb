@@ -27,7 +27,6 @@ describe Oystercard do
   context "no top up" do
     describe "#touch_in" do
       it "should raise_error 'No money' if balance is below min_fare" do
-        #station = double(:station)
         expect { subject.touch_in(station) }.to raise_error( "No money" )
       end
     end
@@ -35,7 +34,6 @@ describe Oystercard do
 
   context "top_up 5" do
     before do
-      #station = double(:station)
       subject.top_up(5)
       subject.touch_in(station)
     end
