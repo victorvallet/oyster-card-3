@@ -18,6 +18,7 @@ MINIMUM_FARE = 1
   def touch_in(station)
     raise "No money" if balance < MINIMUM_FARE
     @entry_station = station
+    @after_entry = station
   end
 
   def touch_out(station)
@@ -27,7 +28,7 @@ MINIMUM_FARE = 1
   end
 
   def my_trip
-    [@entry_station, @exit_station]
+    [@after_entry, @exit_station]
   end
 
   def in_journey?
