@@ -8,6 +8,7 @@ MINIMUM_FARE = 1
   def initialize
     @balance = 0
     @entry_station = nil
+    @my_trip = []
   end
 
   def top_up(value)
@@ -25,10 +26,11 @@ MINIMUM_FARE = 1
     deduct(MINIMUM_FARE)
     @entry_station = nil
     @exit_station = station
+    @my_trip << [@after_entry, @exit_station]
   end
 
   def my_trip
-    [@after_entry, @exit_station]
+    @my_trip
   end
 
   def in_journey?
