@@ -63,5 +63,11 @@ describe Oystercard do
         expect(subject.exit_station).to eq(exit_station)
       end
     end
+    describe '#my_trip' do
+      it 'should print my trip' do
+        subject.touch_out(exit_station)
+        expect(subject.my_trip).to eq([entry_station, exit_station])
+      end
+    end
   end
 end

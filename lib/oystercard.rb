@@ -7,7 +7,10 @@ MINIMUM_FARE = 1
 
   def initialize
     @balance = 0
-    @entry_station = nil
+    @entry_station = []
+    @exit_station = []
+    @entry_station[0] = nil
+    @num_journeys = 0
   end
 
   def top_up(value)
@@ -17,17 +20,22 @@ MINIMUM_FARE = 1
 
   def touch_in(station)
     raise "No money" if balance < MINIMUM_FARE
-    @entry_station = station
+    @entry_station[0] = station
   end
 
   def touch_out(station)
     deduct(MINIMUM_FARE)
-    @entry_station = nil
-    @exit_station = station
+    @num_journeys += 1
+    @entry_station[@num_journeys] = nil
+    @exit_station[@num_journeys - 1] = station
+  end
+
+  def my_trip
+    [@entry_station[@num_journeys - 1], @exit_station[@num_journeys -1]]
   end
 
   def in_journey?
-    !!@entry_station
+    !!@entry_station[@num_journeys]
   end
 
   private

@@ -98,6 +98,11 @@ I need to know where I've travelled to
 
 \@exit_station
 
+In order to know where I have been
+As a customer
+I want to see to all my trip
+
+[\@entry_station, \@exit_station]
 
 In order to know where I have been
 As a customer
