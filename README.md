@@ -102,8 +102,10 @@ In order to know where I have been
 As a customer
 I want to see to all my trip
 
-[\@entry_station, \@exit_station]
+[\@after_entry, \@exit_station]
 
 In order to know where I have been
 As a customer
 I want to see to all my previous trips
+
+[[@my_trip], [@my_trip], [@my_trip]]
