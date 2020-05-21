@@ -1,7 +1,15 @@
 require_relative 'oystercard'
 class Journey
 
-  def start
-   
+  attr_reader :entry_station
+
+  def initialize(entry_station)
+    @entry_station = entry_station
   end
+
+
+  def complete?
+    true
+  end
+
 end

@@ -1,23 +1,33 @@
 require 'journey'
 require 'oystercard'
 describe Journey do
-
-    let(:entry_station) { entry_station = double(:station) }
-    let(:exit_station) { exit_station = double(:station) }
-
-    it {is_expected.to be_instance_of Journey}
-
-    before do
-        card = Oystercard.new
-        card.top_up(10)
-        card.touch_in(entry_station)   
+    
+    it "complete the journey" do
+        journey = Journey.new("Bank")
+      expect(journey.complete?).to be true
     end
 
-    context 'journey start' do
-        it 'should remember the entry_station when #touch_in' do
-            expect(subject.start).to eq entry_station
-        end
+    it "create a entry station and exit station when initialzing" do
+      journey = Journey.new("Bank")
+      expect(journey.entry_station).to eq "Bank"
     end
+
+    # let(:entry_station) { entry_station = double(:station) }
+    # let(:exit_station) { exit_station = double(:station) }
+
+    # it {is_expected.to be_instance_of Journey}
+
+    # before do
+    #     card = Oystercard.new
+    #     card.top_up(10)
+    #     card.touch_in(entry_station)   
+    # end
+
+    # context 'journey start' do
+    #     it 'should remember the entry_station when #touch_in' do
+    #         expect(subject.start).to eq entry_station
+    #     end
+    # end
 
 
     
