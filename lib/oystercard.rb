@@ -28,11 +28,11 @@ MINIMUM_FARE = 1
     @entry_station = nil
   end
 
+  private
+
   def in_journey?
     !!@entry_station
   end
-
-  private
 
   def add_last_trip
     @my_trips << { :entry => @entry_station, :exit => @exit_station }

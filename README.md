@@ -124,3 +124,20 @@ As a customer
 I want to know what zone a station is in
 
 \station.zone
+
+
+In order to be charged correctly
+As a customer
+I need a penalty charge deducted if I fail to touch in or out
+
+Journey Class
+
+\journey.start
+\journey.end
+\journey.complete?
+
+\journey.calculate_fare
+=> returns MINIMUM_FARE
+=> if incomplete, returns PENALTY_FARE = 6
+
+
