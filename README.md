@@ -80,11 +80,6 @@ balance check
 \@in system
 
 
-
-
-
-
-
 In order to pay for my journey
 As a customer
 I need to know where I've travelled from
