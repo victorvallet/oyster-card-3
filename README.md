@@ -110,9 +110,14 @@ I want to see to all my previous trips
 
 In order to know how far I have travelled
 As a customer
-I want to know what have a station
+I want to know a station
 
 \class Station
+
+In order to know how far I have travelled
+As a customer
+I want to know the name of station is in
+\station.name
 
 In order to know how far I have travelled
 As a customer
