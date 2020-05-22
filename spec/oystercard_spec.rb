@@ -20,12 +20,6 @@ describe Oystercard do
     expect { subject.top_up(limit + 1) } .to raise_error "Error, card has limit of #{limit}"
   end
 
-  # describe '#in_journey?' do
-  #   it "should return false" do
-  #     expect(subject).not_to be_in_journey
-  #   end
-  # end
-
   context "no top up" do
     describe "#touch_in" do
       it "should raise_error 'No money' if balance is below min_fare" do
@@ -41,41 +35,18 @@ describe Oystercard do
     end
 
     describe '#touch_in' do
-      # it "should change #in_journey to true" do
-      #   expect(subject).to be_in_journey
-      # end
       it "stores current entry station" do
-        expect(subject.entry_station).to eq(entry_station)
+        expect(subject.touch_in(entry_station)).to eq(entry_station)
       end
     end
 
     describe '#touch_out' do
-      # it "should change #in_journey to false" do
-      #   subject.touch_out(exit_station)
-      #   expect(subject).not_to be_in_journey
-      # end
       it "should deduct the minimum fare from the card" do
         min_fare = Oystercard::MINIMUM_FARE
         expect { subject.touch_out(exit_station) }.to change{ subject.balance }.by(-min_fare)
       end
       it 'should store exit_station' do
-        subject.touch_out(exit_station)
-        expect(subject.exit_station).to eq(exit_station)
-      end
-    end
-    describe '#my_trip' do
-      it 'should have no journeys at the start' do
-        expect(subject.my_trips).to eq([])
-      end
-      it 'should print my trip' do
-        subject.touch_out(exit_station)
-        expect(subject.my_trips).to eq([{:entry => entry_station, :exit => exit_station}])
-      end
-      it 'store two trips in an array' do
-        subject.touch_out(exit_station)
-        subject.touch_in(entry_station)
-        subject.touch_out(exit_station)
-        expect(subject.my_trips).to eq([{:entry => entry_station, :exit => exit_station}, {:entry => entry_station, :exit => exit_station}])
+        expect(subject.touch_out(exit_station)).to eq(nil)
       end
     end
   end
