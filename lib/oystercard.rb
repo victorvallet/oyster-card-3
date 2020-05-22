@@ -4,6 +4,7 @@ class Oystercard
 
 TOP_UP_LIMIT = 90
 MINIMUM_FARE = 1
+PENALTY_FARE = 6
 
   attr_reader :balance
 
@@ -23,8 +24,8 @@ MINIMUM_FARE = 1
   end
 
   def touch_out(station)
-    deduct(MINIMUM_FARE)
     @journeys.touch_out(station)
+    deduct
   end
 
   def in_journey?
@@ -37,8 +38,8 @@ MINIMUM_FARE = 1
     value + balance > TOP_UP_LIMIT
   end
 
-  def deduct(fare)
-    @balance -= fare
+  def deduct
+    @balance -= @journeys.fare
   end
 
 end

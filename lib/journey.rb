@@ -27,6 +27,16 @@ class Journey
     @entry_station != nil
   end
 
+  def fare
+    if @my_trips[-1][:entry_station] == nil
+      return Oystercard::PENALTY_FARE
+    elsif @my_trips[-1][:exit_station] == nil
+      return Oystercard::PENALTY_FARE
+    else
+      Oystercard::MINIMUM_FARE
+    end
+  end
+
   private
 
   def add_last_trip
