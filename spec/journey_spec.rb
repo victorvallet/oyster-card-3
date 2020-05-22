@@ -4,11 +4,6 @@ describe Journey do
 
   let(:exit_station) { exit_station = double(:station) }
 
-    # it "complete the journey" do
-    #     journey = Journey.new("Bank")
-    #   expect(journey.complete?).to be true
-    # end
-
   it "create an empty array on initialize" do
     expect(subject.my_trips).to eq ([])
   end

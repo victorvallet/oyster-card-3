@@ -14,7 +14,6 @@ class Journey
   end
 
   def touch_out(station)
-    # @exit_station = station
     add_last_trip(station)
     @entry_station = nil
   end

@@ -6,7 +6,6 @@ describe Oystercard do
   let(:exit_station) { exit_station = double(:station) }
 
 
-
   it "has a balance" do
     expect(subject.balance).to eq(0)
   end
@@ -40,16 +39,14 @@ describe Oystercard do
     describe '#touch_out' do
    
       it 'should deduct a PENALTY_FARE when no entry_station or exit_station' do
-        penalty_fare = Oystercard::PENALTY_FARE
         subject.top_up(10)
-        expect { subject.touch_out(exit_station) }.to change { subject.balance }.by(-penalty_fare)
+        expect { subject.touch_out(exit_station) }.to change { subject.balance }.by(-Oystercard::PENALTY_FARE)
       end
 
-      it "should deduct the minimum fare from the card" do
-        min_fare = Oystercard::MINIMUM_FARE
+      it "should deduct the minimum fare from the card" do 
         subject.top_up(10)
         subject.touch_in(entry_station)
-        expect { subject.touch_out(exit_station) }.to change{ subject.balance }.by(-min_fare)
+        expect { subject.touch_out(exit_station) }.to change{ subject.balance }.by(-Oystercard::MINIMUM_FARE)
       end
     end
   end

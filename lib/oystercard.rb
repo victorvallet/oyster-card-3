@@ -39,8 +39,7 @@ PENALTY_FARE = 6
   end
 
   def deduct
-    @fare = @journeys.fare
-    @balance -= @fare
+    @balance -= @journeys.fare
   end
 
 end
