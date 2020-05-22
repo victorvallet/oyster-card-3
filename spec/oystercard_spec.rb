@@ -29,29 +29,27 @@ describe Oystercard do
   end
 
   context "top_up 5" do
-    before do
-      subject.top_up(5)
-      subject.touch_in(entry_station)
-    end
 
     describe '#touch_in' do
       it "stores current entry station" do
+        subject.top_up(5)
         expect(subject.touch_in(entry_station)).to eq(entry_station)
       end
     end
 
     describe '#touch_out' do
+   
+      it 'should deduct a PENALTY_FARE when no entry_station or exit_station' do
+        penalty_fare = Oystercard::PENALTY_FARE
+        subject.top_up(10)
+        expect { subject.touch_out(exit_station) }.to change { subject.balance }.by(-penalty_fare)
+      end
+
       it "should deduct the minimum fare from the card" do
         min_fare = Oystercard::MINIMUM_FARE
         subject.top_up(10)
         subject.touch_in(entry_station)
         expect { subject.touch_out(exit_station) }.to change{ subject.balance }.by(-min_fare)
-      end
-      it 'should store exit_station' do
-        expect(subject.touch_out(exit_station)).to eq(nil)
-      end
-      it 'should return the PENALTY_FARE when no exit or entry station' do
-        expect { subject.touch_out(exit_station)}.to change{ subject.balance }.by(-Oystercard::PENALTY_FARE)
       end
     end
   end

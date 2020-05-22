@@ -2,6 +2,8 @@ require 'journey'
 require 'oystercard'
 describe Journey do
 
+  let(:exit_station) { exit_station = double(:station) }
+
     # it "complete the journey" do
     #     journey = Journey.new("Bank")
     #   expect(journey.complete?).to be true
@@ -13,5 +15,9 @@ describe Journey do
 
   it 'should show as in_journey? false to start with' do
     expect(subject.in_journey?).to be false
+  end
+
+  it 'should store exit_station' do
+    expect(subject.touch_out(exit_station)).to eq(nil)
   end
 end

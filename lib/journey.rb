@@ -14,8 +14,8 @@ class Journey
   end
 
   def touch_out(station)
-    @exit_station = station
-    add_last_trip
+    # @exit_station = station
+    add_last_trip(station)
     @entry_station = nil
   end
 
@@ -28,19 +28,17 @@ class Journey
   end
 
   def fare
-    if @my_trips[-1][:entry_station] == nil
-      return Oystercard::PENALTY_FARE
-    elsif @my_trips[-1][:exit_station] == nil
+    if @my_trips[-1][:exit] == nil || @my_trips[-1][:entry] == nil
       return Oystercard::PENALTY_FARE
     else
-      Oystercard::MINIMUM_FARE
+      return Oystercard::MINIMUM_FARE
     end
   end
 
   private
 
-  def add_last_trip
-    @my_trips << { :entry => @entry_station, :exit => @exit_station }
+  def add_last_trip(station)
+    @my_trips << { :entry => @entry_station, :exit => station }
   end
 
 end
